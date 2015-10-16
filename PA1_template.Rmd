@@ -31,8 +31,9 @@ stepsperin <- group_by(act, interval)
 meanstepsin <- summarize(stepsperin, steps = mean(steps, na.rm = TRUE))
 plot(meanstepsin,type = "l",xlab = "Interval",ylab="Steps",main="Average daily activity pattern")
 maxstepin <- meanstepsin[meanstepsin$steps == max(meanstepsin$steps),]$interval
+nextvalue <- maxstepin + 5
 ```
-The interval `r maxstepin`, on average across all the days in the dataset, contains the maximum number of steps.
+The 5-minute interval `r maxstepin` ~ `r nextvalue`, on average across all the days in the dataset, contains the maximum number of steps.
 
 ## Imputing missing values
 ```{r}
@@ -40,7 +41,7 @@ summissing <- sum(!complete.cases(act))
 ```
 The total number of missing values in the dataset is `r summissing`.
 
-fill missing values with the mean for that 5-minute interval.
+Here, the mean for the 5-minute interval is used for filling in the missing values.
 ```{r}
 fillact <- act
 tt <- meanstepsin[meanstepsin$interval == fillact$interval[is.na(fillact$steps)],]

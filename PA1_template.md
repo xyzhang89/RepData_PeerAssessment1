@@ -55,8 +55,9 @@ plot(meanstepsin,type = "l",xlab = "Interval",ylab="Steps",main="Average daily a
 
 ```r
 maxstepin <- meanstepsin[meanstepsin$steps == max(meanstepsin$steps),]$interval
+nextvalue <- maxstepin + 5
 ```
-The interval 835, on average across all the days in the dataset, contains the maximum number of steps.
+The 5-minute interval 835 ~ 840, on average across all the days in the dataset, contains the maximum number of steps.
 
 ## Imputing missing values
 
@@ -65,7 +66,7 @@ summissing <- sum(!complete.cases(act))
 ```
 The total number of missing values in the dataset is 2304.
 
-fill missing values with the mean for that 5-minute interval.
+Here, the mean for the 5-minute interval is used for filling in the missing values.
 
 ```r
 fillact <- act
