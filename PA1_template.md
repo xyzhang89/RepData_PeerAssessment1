@@ -74,7 +74,8 @@ tt <- meanstepsin[meanstepsin$interval == fillact$interval[is.na(fillact$steps)]
 fillact$steps <- replace(fillact$steps,is.na(fillact$steps),tt$steps)
 fstepsperday <- group_by(fillact, date)
 ftotalsteps <- summarize(fstepsperday, steps = sum(steps, na.rm = TRUE))
-hist(ftotalsteps$steps, main = "Histogram of the total number of steps with imputed missing values", xlab = "The total number of steps taken each day")
+hist(ftotalsteps$steps, main = "Histogram of the total number of steps with imputed missing values", 
+     xlab = "The total number of steps taken each day")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
