@@ -69,7 +69,8 @@ act$weekdays = ifelse(act$weekdays == 1 |act$weekdays == 7, "weekend","weekday")
 wstepsperin <- group_by(act,interval,weekdays)
 wmeanstepsin <- summarize(wstepsperin, steps = mean(steps, na.rm = TRUE))
 library(lattice)
-xyplot( steps~ interval | weekdays, data = wmeanstepsin, layout = c(1, 2),type="l", main = "Activity patterns between weekdays and weekends",xlab = "Interval", ylab = "Number of steps")
+xyplot( steps~ interval | weekdays, data = wmeanstepsin, layout = c(1, 2),type="l",
+        main = "Activity patterns between weekdays and weekends",xlab = "Interval", ylab = "Number of steps")
 ```
 
 From the figure above, there are differences in activity patterns between weekdays and weekends.
